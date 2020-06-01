@@ -2,7 +2,7 @@ package stack;
 
 public class LinkedList<E> implements Stack<E> {
     Node head;
-
+    boolean started = false ;
     @Override
     public Object top(){
         Node node = head ;
@@ -44,21 +44,29 @@ public class LinkedList<E> implements Stack<E> {
         Node newNode = node ;
         n.next = null ;
         node = null ;
+        started = true ;
         return newNode.value ;
     }
 
     @Override
     public boolean isEmpty() {
-        return head == null ;
+        Node node = head ;
+        if ((node.next == null) && (started)) {
+            return true ;
+        } else {
+            return false ;
+        }
     }
 
     @Override
     public String toString() {
         Node node = head;
         while (node.next != null ) {
+
             node = node.next;
         }
         System.out.println(node.value);
-        return node.value.toString() ;
+
+        return "" ;
     }
 }
