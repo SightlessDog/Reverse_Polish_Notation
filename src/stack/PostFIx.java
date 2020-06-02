@@ -46,7 +46,7 @@ public class PostFIx {
     }
 
 
-    public void infixToPostfix (String ifx) {
+    public void infixToPostfix (String ifx)  {
         String output="" ;
          for (int i = 0 ; i<ifx.length(); i++) {
              System.out.println("length is : "+ifx.length());
