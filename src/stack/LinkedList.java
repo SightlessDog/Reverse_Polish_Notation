@@ -4,7 +4,7 @@ public class LinkedList<E> implements Stack<E> {
     Node head;
     boolean started = false ;
     @Override
-    public Object top()  {
+    public Object top() throws Underflow {
             Node node = head ;
             while(node.next!=null) {
                 node = node.next;
@@ -13,24 +13,24 @@ public class LinkedList<E> implements Stack<E> {
         }
 
     @Override
-    public void push(Object value )  {
-            Node node = new Node();
-            node.value=value;
-            node.next = null ;
+    public void push(Object value ) throws Overflow  {
+                Node node = new Node();
+                node.value=value;
+                node.next = null ;
 
-            if (head == null) {
-                head = node ;
-            } else {
-                Node n = head ;
-                while (n.next!= null ){
-                    n =  n.next;
+                if (head == null) {
+                    head = node ;
+                } else {
+                    Node n = head ;
+                    while (n.next!= null ){
+                        n =  n.next;
+                    }
+                    n.next = node ;
                 }
-                n.next = node ;
-            }
             }
 
     @Override
-    public Object pop()  {
+    public Object pop() throws Underflow {
             Node node = head ;
             Node n = head ;
             int i =0 ;

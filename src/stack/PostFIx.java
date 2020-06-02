@@ -8,7 +8,7 @@ public class PostFIx {
     LinkedList stack = new LinkedList() ;
     LinkedList stack2 = new LinkedList();
 
-    public int evaluate (String pfx) {
+    public int evaluate (String pfx) throws Underflow, Overflow{
 
         for (int i =0 ; i<pfx.length() ; i++) {
             char t = pfx.charAt(i);
@@ -46,7 +46,7 @@ public class PostFIx {
     }
 
 
-    public void infixToPostfix (String ifx)  {
+    public void infixToPostfix (String ifx) throws Underflow, Overflow  {
         String output="" ;
          for (int i = 0 ; i<ifx.length(); i++) {
              System.out.println("length is : "+ifx.length());
@@ -81,7 +81,7 @@ public class PostFIx {
     }
 
 
-    public void UI() {
+    public void UI() throws Underflow, Overflow {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Type your postfix expression : ");
         String PostFix = scanner.nextLine();
